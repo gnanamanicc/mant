@@ -1,0 +1,80 @@
+<html>
+  <head>
+    <title>Student Result</title>
+  </head>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css">
+  <body style="height: 100vh;">
+    <header>
+      <img src="clglogo.png" alt="logo" />
+      <div class="logo-title">
+        <h2>GNANAMANI COLLEGE OF TECHNOLOGY - AUTONOMOUS</h2>
+        <h2>OFFICE OF THE CONTROLLER OF EXAMINATIONS</h2>
+        <h2>UG & PG END SEMESTER EXAMINATIONS RESULT</h2>
+      </div>
+    </header>
+
+    <div style="display: flex; justify-content: center; align-items: center">
+      <div class="welcome-text">
+        <h2>
+          Welcome to the <br />
+          GNANAMANI COLLEGE OF TECHNOLOGY <br />
+          Result Portal.
+        </h2>
+      </div>
+    </div>
+
+    <main>
+      <div class="form">
+        <h2 style="font-family: 'Times New Roman', Times, serif; font-style: bold; font-weight: 800;">Student Login:</h2>
+        <form
+          action="process.php"
+          method="post"
+          onsubmit="return validateForm()"
+        >
+          <div class="flex">
+            <label for="register_num">Register Number :</label>
+            <input type="number" name="register_num" id="register_num" />
+          </div>
+          <div class="flex">
+            <label for="dob">Date of Birth(DD/MM/YYYY): &nbsp;</label>
+            <input type="text" name="dob" id="dob" />
+          </div>
+          <p style="color: red; font-size: 1.2rem; padding: 2px" id="error"></p>
+           <button type="button" style="color: rgb(19, 183, 36);"><a href="/in.html">submit</a></button>           
+          
+        </form>
+      </div>
+    </main>
+
+    <script>
+      function validateForm() {
+        const registerNum = document.getElementById("register_num").value;
+        const dob = document.getElementById("dob").value;
+        const error = document.getElementById("error");
+
+        // Add validation logic here (e.g., check if fields are not empty)
+        if (registerNum === "") {
+          // alert("Register Number must be filled out");
+          error.innerText = "Register Number must be filled out";
+          return false; // Return false to prevent the form from being submitted
+        } else if (dob === "") {
+          // alert("Date of Birth must be filled out");
+          error.innerText = "Date of Birth must be filled out";
+          
+          return false;
+        }/* else if (registerNum.length !== 12) {
+          // alert("Registration number should have 12 digits");
+          error.innerText = "Registration number should have 12 digits";
+          return false;
+        }*/
+        return true;
+      }
+    </script>
+  </body>
+</html>
